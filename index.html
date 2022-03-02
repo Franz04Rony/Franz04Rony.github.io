@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- displays site properly based on user's device -->
+    <title>Pieda papel y tijeras</title>
+    <link rel="stylesheet" media="all" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="images/logo.svg" alt="logo">
+        </div>
+        <div class="box-score">
+            <div class="palabra-score">
+                SCORE
+            </div>
+
+            <div class="score" id="score">
+                0
+            </div>
+            
+        </div>
+    </header>
+
+    <div class="inicio" id="inicio">
+
+        <img src="images/bg-triangle.svg" alt="triangulo" class="triangulo">
+
+        
+        <button id="papel" class="papel">
+            <img src="images/icon-paper.svg"alt="papel" class="papel-img">
+        </button>
+        
+        
+        
+        <button class="tijeras" id="tijeras">
+            <img src="images/icon-scissors.svg"alt="tijeras" class="tijeras-img">
+        </button>
+        
+        
+        
+        <button class="piedra" id="piedra">
+            <img src="images/icon-rock.svg"alt="piedra" class="piedra-img">
+        </button>
+        
+    </div>
+
+    <div class="game" id="game">
+        <div class="you-picked">
+            <div class="letras" id="letras">
+                Elegiste
+            </div>
+            <div id="box-jugador" class="box-jugador">
+                <img src="" alt="tu" id="imagen-jugador" class="imagen-jugador" >
+            </div>
+        </div>
+
+        <div class="play-again" id="play-again">
+            <div class="win-lose" id="win-lose">
+                PERDISTE
+            </div>
+            <button class="b-play-again" id="b-play-again">
+                Jugar de nuevo
+            </button>
+        </div>
+
+        <div class="house-picked">
+            <div class="letras" id="letras">
+                La casa eligió
+            </div>
+            <div class="box-casa" id="box-casa">
+                <img src="" alt="casa" class="imagen-casa" id="imagen-casa">
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <button class="b-reglas">
+            REGLAS
+        </button>
+        
+        <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Franz Rony Ventocilla Tamara</a>.
+      </div>
+    </footer>
+    <script src="main.js"></script>
+    
+</body>
+</html>
