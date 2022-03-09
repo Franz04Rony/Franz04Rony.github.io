@@ -111,7 +111,7 @@ piedra.addEventListener("click",()=>{
         else{
             console.log("Jugador gana")
             win_lose.textContent = "Ganaste!"
-            score_number.textContent = score+2;
+            score_number.textContent = score+1;
             score = score + 1;
         }
     }
@@ -164,7 +164,7 @@ papel.addEventListener("click",()=>{
         else{
             console.log("Jugador gana")
             win_lose.textContent = "Ganaste!";
-            score_number.textContent = score+2;
+            score_number.textContent = score+1;
             score = score + 1;
         }
     }
@@ -217,7 +217,7 @@ tijeras.addEventListener("click",()=>{
         else{
             console.log("Jugador gana")
             win_lose.textContent = "Ganaste!";
-            score_number.textContent = score+2;
+            score_number.textContent = score+1;
             score = score + 1;
         }
     }
