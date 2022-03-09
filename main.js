@@ -15,19 +15,20 @@ const score_number = document.getElementById("score");
 let score = 0;
 estados = ["piedra", "papel", "tijeras"];
 links = ["images/icon-rock.svg", "images/icon-paper.svg", "images/icon-scissors.svg"];
-game.style.display = "none";
-imagen_jugador.className = "papel-img";
-imagen_casa.className = "papel-img";
-box_casa.style.backgroundImage = "unset"; //?
-box_casa.style.boxShadow = "unset";
-play_again.style.display = "none";
-imagen_casa.style.boxShadow = "unset";
-imagen_casa.style.backgroundColor = "hsl(229, 25%, 31%)";
+ game.style.display = "none";
+ imagen_jugador.className = "papel-img";
+ imagen_casa.className = "papel-img";
 
 
-function funcion1(){
+// box_casa.style.backgroundImage = "unset"; //?
+// box_casa.style.boxShadow = "unset";
+// play_again.style.display = "none";
+// imagen_casa.style.boxShadow = "unset";
+// imagen_casa.style.backgroundColor = "hsl(229, 25%, 31%)";
+
+
+function funcion1(links){
      //Bot
-     box_casa.className = bot;
      box_casa.style.cursor = "unset";
      box_casa.style.width = "10em";
      box_casa.style.height = "10em";
@@ -37,7 +38,12 @@ function funcion1(){
      imagen_casa.style.width = "7em";
      imagen_casa.style.height = "7em";
      box_casa.style.position = "unset";
-     imagen_casa.src = link_bot;
+     
+
+     rand = Math.floor((Math.random()*3)+1);
+     imagen_casa.src = links[rand - 1];
+     console.log(imagen_casa)
+     
 }
 function funcion2(bot){
     play_again.style.display = "flex";
@@ -45,7 +51,6 @@ function funcion2(bot){
 }
 
 piedra.addEventListener("click",()=>{
-    
     
     // let timerId = setTimeout(function(){
     //     console.log("que tal??");
@@ -56,12 +61,7 @@ piedra.addEventListener("click",()=>{
     bot = estados[rand - 1];
     link_bot = links[rand - 1];
     i = 0
-    let timerId = setTimeout(function(){
-        funcion1()
-    },1000);
-    let timerId1 = setTimeout(function(){
-        funcion2(bot)
-    },2000);
+    
     //Poniendo estilos
     //Jugador
     box_jugador.className = jugador;
@@ -75,7 +75,29 @@ piedra.addEventListener("click",()=>{
     imagen_jugador.style.height = "7em";
     box_jugador.style.position = "unset";
     imagen_jugador.src = links[0];
-    
+
+    //bot elige despues de un tiempo
+
+    // let timerId = setTimeout(function(){
+    //     funcion1(links)
+    // },1000);
+    // let timerId1 = setTimeout(function(){
+    //     funcion2(bot)
+    // },2000);
+
+    //bot elige
+    box_casa.className = bot;
+    box_casa.style.cursor = "unset";
+    box_casa.style.width = "10em";
+    box_casa.style.height = "10em";
+    box_casa.style.display = "flex";
+    box_casa.style.alignItems = "center";
+    box_casa.style.justifyContent = "center";
+    imagen_casa.style.width = "7em";
+    imagen_casa.style.height = "7em";
+    box_casa.style.position = "unset";
+    imagen_casa.src = link_bot;
+
     //cambiar de pantalla
     inicio.style.display = "none";
     game.style.display = "flex";
@@ -90,7 +112,7 @@ piedra.addEventListener("click",()=>{
             console.log("Jugador gana")
             win_lose.textContent = "Ganaste!"
             score_number.textContent = score+2;
-            score = score + 2;
+            score = score + 1;
         }
     }
     else{
@@ -143,7 +165,7 @@ papel.addEventListener("click",()=>{
             console.log("Jugador gana")
             win_lose.textContent = "Ganaste!";
             score_number.textContent = score+2;
-            score = score + 2;
+            score = score + 1;
         }
     }
     else{
@@ -196,7 +218,7 @@ tijeras.addEventListener("click",()=>{
             console.log("Jugador gana")
             win_lose.textContent = "Ganaste!";
             score_number.textContent = score+2;
-            score = score + 2;
+            score = score + 1;
         }
     }
     else{
