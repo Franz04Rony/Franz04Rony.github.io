@@ -19,43 +19,70 @@ links = ["images/icon-rock.svg", "images/icon-paper.svg", "images/icon-scissors.
  imagen_jugador.className = "papel-img";
  imagen_casa.className = "papel-img";
 
-
-// box_casa.style.backgroundImage = "unset"; //?
-// box_casa.style.boxShadow = "unset";
-// play_again.style.display = "none";
-// imagen_casa.style.boxShadow = "unset";
-// imagen_casa.style.backgroundColor = "hsl(229, 25%, 31%)";
+ play_again.style.display = "none";
+ box_casa.style.boxShadow = "unset";
+ imagen_casa.style.boxShadow = "unset";
+ imagen_casa.style.backgroundColor = "hsl(229, 25%, 31%)";
 
 
-function funcion1(links){
-     //Bot
-     box_casa.style.cursor = "unset";
-     box_casa.style.width = "10em";
-     box_casa.style.height = "10em";
-     box_casa.style.display = "flex";
-     box_casa.style.alignItems = "center";
-     box_casa.style.justifyContent = "center";
-     imagen_casa.style.width = "7em";
-     imagen_casa.style.height = "7em";
-     box_casa.style.position = "unset";
-     
+function funcion1(bot,jugador,score, win_lose){
+        //Bot
+        box_casa.className = bot;
+        box_casa.style.cursor = "unset";
+        box_casa.style.width = "10em";
+        box_casa.style.height = "10em";
+        box_casa.style.display = "flex";
+        box_casa.style.alignItems = "center";
+        box_casa.style.justifyContent = "center";
+        imagen_casa.style.width = "7em";
+        imagen_casa.style.height = "7em";
+        box_casa.style.position = "unset";
+        
+        //NO depende de que escojas
+        imagen_casa.style.backgroundColor = "rgb(241, 240, 240)";
+        imagen_casa.style.boxShadow = "0 0.4em 0.1em 0.05em inset hsl(230deg 8% 71%)";
 
-     rand = Math.floor((Math.random()*3)+1);
-     imagen_casa.src = links[rand - 1];
-     console.log(imagen_casa)
-     
+        //actualizando score
+        let j = 0;
+        let b = 0;
+        if (jugador == "piedra") j = 0;
+        if (jugador == "papel") j = 1;
+        if (jugador == "tijeras") j = 2;
+        if (bot == "piedra") b = 0;
+        if (bot == "papel") b = 1;
+        if (bot == "tijeras") b = 2;
+        const game = [
+        ["E","P", "G"],
+        ["G", "E", "P"],
+        ["P", "G", "E"],
+        ]
+        let result = game[j][b]
+        if (result != "E"){
+            if(result =="G"){
+                console.log("Jugador gana")
+                win_lose.textContent = "Ganaste! :D";
+                score = score + 1;
+                return score;
+            }
+            if(result == "P"){
+                console.log("Perdistee")
+                win_lose.textContent = "Perdiste :c"
+                score = score - 1;
+                return score;
+            }
+        }
+        else{
+            console.log("Empateee")
+            win_lose.textContent = "Empateee";
+            return score;
+        }
+        
 }
-function funcion2(bot){
+function funcion2(){
     play_again.style.display = "flex";
-    console.log("funcionn2")   
 }
 
 piedra.addEventListener("click",()=>{
-    
-    // let timerId = setTimeout(function(){
-    //     console.log("que tal??");
-    //     },1000);
-    
     jugador = "piedra";
     rand = Math.floor((Math.random()*3)+1);
     bot = estados[rand - 1];
@@ -76,49 +103,21 @@ piedra.addEventListener("click",()=>{
     box_jugador.style.position = "unset";
     imagen_jugador.src = links[0];
 
-    //bot elige despues de un tiempo
-
-    // let timerId = setTimeout(function(){
-    //     funcion1(links)
-    // },1000);
-    // let timerId1 = setTimeout(function(){
-    //     funcion2(bot)
-    // },2000);
-
     //bot elige
-    box_casa.className = bot;
-    box_casa.style.cursor = "unset";
-    box_casa.style.width = "10em";
-    box_casa.style.height = "10em";
-    box_casa.style.display = "flex";
-    box_casa.style.alignItems = "center";
-    box_casa.style.justifyContent = "center";
-    imagen_casa.style.width = "7em";
-    imagen_casa.style.height = "7em";
-    box_casa.style.position = "unset";
     imagen_casa.src = link_bot;
+    let timerId1 = setTimeout(function(){
+        score = funcion1(bot,jugador,score, win_lose);
+        score_number.textContent = score;
+    }, 1000);
+
+    let timerId2 = setTimeout(function(){
+        funcion2();
+    }, 2000);
 
     //cambiar de pantalla
     inicio.style.display = "none";
     game.style.display = "flex";
-    if (jugador != bot){
-        if(bot == "papel"){
-            console.log("Bot gana")
-            win_lose.textContent = "Perdiste :c"
-            score_number.textContent = score-1;
-            score = score - 1;
-        }
-        else{
-            console.log("Jugador gana")
-            win_lose.textContent = "Ganaste!"
-            score_number.textContent = score+1;
-            score = score + 1;
-        }
-    }
-    else{
-        console.log("Empateee");
-        win_lose.textContent = "Empateee";
-    }
+    
 })
 
 papel.addEventListener("click",()=>{
@@ -139,39 +138,20 @@ papel.addEventListener("click",()=>{
     imagen_jugador.style.height = "7em";
     box_jugador.style.position = "unset";
     imagen_jugador.src = links[1];
-    //Bot
-    box_casa.className = bot;
-    box_casa.style.cursor = "unset";
-    box_casa.style.width = "10em";
-    box_casa.style.height = "10em";
-    box_casa.style.display = "flex";
-    box_casa.style.alignItems = "center";
-    box_casa.style.justifyContent = "center";
-    imagen_casa.style.width = "7em";
-    imagen_casa.style.height = "7em";
-    box_casa.style.position = "unset";
+    //bot elige
     imagen_casa.src = link_bot;
+    let timerId1 = setTimeout(function(){
+        score = funcion1(bot,jugador,score, win_lose);
+        score_number.textContent = score;
+    }, 1000);
+
+    let timerId2 = setTimeout(function(){
+        funcion2();
+    }, 2000);
     //cambiando de pantalla
     inicio.style.display = "none";
     game.style.display = "flex";
-    if (jugador != bot){
-        if(bot == "tijeras"){
-            console.log("Bot gana")
-            win_lose.textContent = "Perdiste :c"
-            score_number.textContent = score-1;
-            score = score - 1;
-        }
-        else{
-            console.log("Jugador gana")
-            win_lose.textContent = "Ganaste!";
-            score_number.textContent = score+1;
-            score = score + 1;
-        }
-    }
-    else{
-        console.log("Empateee")
-        win_lose.textContent = "Empateee";
-    }
+    
 })
 
 tijeras.addEventListener("click",()=>{
@@ -192,58 +172,32 @@ tijeras.addEventListener("click",()=>{
     imagen_jugador.style.width = "7em";
     imagen_jugador.style.height = "7em";
     imagen_jugador.src = links[2];
-    //Bot
-    box_casa.className = bot;
-    box_casa.style.position = "unset";
-    box_casa.style.cursor = "unset";
-    box_casa.style.width = "10em";
-    box_casa.style.height = "10em";
-    box_casa.style.display = "flex";
-    box_casa.style.alignItems = "center";
-    box_casa.style.justifyContent = "center";
-    imagen_casa.style.width = "7em";
-    imagen_casa.style.height = "7em";
+    //bot elige
     imagen_casa.src = link_bot;
+    let timerId1 = setTimeout(function(){
+        score = funcion1(bot,jugador,score, win_lose);
+        score_number.textContent = score;
+    }, 1000);
+
+    let timerId2 = setTimeout(function(){
+        funcion2();
+    }, 2000);
     //cambiando de pantalla
     inicio.style.display = "none";
     game.style.display = "flex";
-    if (jugador != bot){
-        if(bot == "piedra"){
-            console.log("Bot gana")
-            win_lose.textContent = "Perdiste :c"
-            score_number.textContent = score-1;
-            score = score - 1;
-        }
-        else{
-            console.log("Jugador gana")
-            win_lose.textContent = "Ganaste!";
-            score_number.textContent = score+1;
-            score = score + 1;
-        }
-    }
-    else{
-        console.log("Empateee")
-        win_lose.textContent = "Empateee";
-    }
 })
 
 b_play_again.addEventListener("click", ()=>{
     game.style.display = "none";
     inicio.style.display = "flex";
+
+    play_again.style.display = "none";
+    box_casa.style.boxShadow = "unset";
+    imagen_casa.style.boxShadow = "unset";
+    imagen_casa.style.backgroundColor = "hsl(229, 25%, 31%)";
+    box_casa.className = "unset";
 })
 
-//animacion de espera:
-
- 
-// papel.addEventListener("click",()=>{
-//     inicio.style.visibility="hidden";
-//     // contador = contador+1;
-//     // //papel.style.width="100px";
-//     // papel.style.backgroundImage = "unset";
-//     // papel.style.backgroundColor = "green";
-//     // papel.style.boxShadow = "0 0 10px #2196F3";
-//     // console.log(contador)
-// })
 
 
 
