@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- displays site properly based on user's device -->
     <title>Pieda papel y tijeras</title>
+    
     <link rel="stylesheet" media="all" href="style.css">
+    <link rel="stylesheet" href="reglas.css">
 </head>
 <body>
     <header class="header">
@@ -74,15 +76,23 @@
             </div>
         </div>
     </div>
+    <div class="modal-container" id="modal_container">
+        <div class="modal">
+            <div class="flexbox">
+                <span class="reglas">REGLAS</span>
+                <button id="close" class="close"><img src="images/icon-close.svg" alt="icon close"></button>
+            </div>
+            <img src="images/image-rules.svg" alt="reglas">
+        </div>
+    </div>
 
     <footer class="footer">
-        <button class="b-reglas">
+        <button class="b-reglas" id="open">
             REGLAS
         </button>
-        
         <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-        Coded by <a href="#">Franz Rony Ventocilla Tamara</a>.
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+            Coded by <a href="https://franzrr.github.io">Franz Rony Ventocilla Tamara</a>.
       </div>
     </footer>
     <script src="main.js"></script>

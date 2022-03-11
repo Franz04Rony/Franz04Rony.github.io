@@ -1,3 +1,6 @@
+const open_ = document.getElementById("open");
+const modal_container = document.getElementById("modal_container");
+const close_ = document.getElementById("close");
 const papel = document.getElementById("papel");
 const piedra = document.getElementById("piedra");
 const tijeras = document.getElementById("tijeras");
@@ -197,6 +200,16 @@ b_play_again.addEventListener("click", ()=>{
     imagen_casa.style.backgroundColor = "hsl(229, 25%, 31%)";
     box_casa.className = "unset";
 })
+
+// Botón reglas - Ventana modal
+
+open_.addEventListener("click", ()=>{
+    modal_container.classList.add("show");
+});
+
+close_.addEventListener("click", ()=>{
+    modal_container.classList.remove("show")
+});
 
 
 

@@ -1,3 +1,6 @@
+*{
+    font-family:  sans-serif;
+}
 body{
     background-image: radial-gradient(circle,hsl(214, 47%, 23%),hsl(237, 49%, 15%));
     background-repeat: no-repeat;
@@ -32,8 +35,9 @@ body{
     border-radius: 10px;
 }
 .palabra-score{
-    font-size: 18px;
+    font-size: 13px;
     color: hsl(229, 64%, 46%);
+    font-weight: 600;
 }
 .score{
     color: hsl(229, 25%, 31%);
@@ -209,6 +213,13 @@ body{
     padding: 6px 15px ;
     margin-bottom: 5px;
     cursor: pointer;
+}
+a{
+    color: rgb(109,241,184);
+    
+}
+a:visited{
+    color: rgb(109,241,184);
 }
 
 
