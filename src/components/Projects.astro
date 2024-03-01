@@ -5,6 +5,12 @@
     import SQLite from './../icons/Sqlite.astro'
     import Express from './../icons/Express.astro'
     import Nodejs from './../icons/Nodejs.astro'
+    import Next from './../icons/Next.astro'
+    import Typescript from './../icons/Typescript.astro'
+    import Python from './../icons/Python.astro'
+    import Tensorflow from './../icons/Tensorflow.astro'
+    import Pandas from './../icons/Pandas.astro'
+    import Numpy from './../icons/Numpy.astro'
 
     const TAGS = {
         REACT:{
@@ -37,8 +43,48 @@
             class: "bg-[#215127] text-white",
             icon: Nodejs
         },
+        NEXT:{
+            name: "Next",
+            class: "bg-black text-white",
+            icon: Next
+        },
+        TYPESCRIPT: {
+            name: "Typescript",
+            class: "bg-[#3178c6] text-white",
+            icon: Typescript
+        },
+        PYTHON: {
+            name: "Python",
+            class: "bg-[#4B8BBE] text-yellow-400",
+            icon: Python
+        },
+        TENSORFLOW: {
+            name: "Tensorflow",
+            class: "bg-white text-orange-600",
+            icon: Tensorflow
+        },
+        PANDAS: {
+            name: "Pandas",
+            class: "bg-purple-400 text-white",
+            icon: Pandas
+        },
+        NUMPY: {
+            name: "Numpy",
+            class: "bg-white text-blue-400",
+            icon: Numpy
+        },
     }
 const projects = [
+    {
+        title: "Salary Predictor",
+        description: "Aplicación web creada desde cero que predice el salario de trabajos relacionados a TI, utilizando IA mediante una red neuronal creada con TensorFlow y Keras.",
+        frontend: "Next.js, Typescript, Tailwind",
+        backend: "Flask, TensorFlow, Keras, Pandas, Scikit_learn, Numpy",
+        link: "https://salary-prediction-kappa.vercel.app",
+        photo: "images/project2.png",
+        tags: [TAGS.NEXT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.PYTHON, TAGS.TENSORFLOW,
+            TAGS.PANDAS, TAGS. NUMPY]
+    },
     {
         title: "Cloud Services Comparison",
         description: "Página web creada desde cero que permite explorar y comparar los distintos servicios que ofrecen los más conocidos proveedores de la nube.",
@@ -47,7 +93,8 @@ const projects = [
         link: "https://cloud-comparison-frontend.vercel.app",
         photo: "images/project1.png",
         tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.VITE, TAGS.SQLITE, TAGS.EXPRESS, TAGS.NODEJS]
-    }
+    },
+    
 ]
 
 ---
