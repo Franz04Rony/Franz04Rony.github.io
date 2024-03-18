@@ -11,6 +11,8 @@
     import Tensorflow from './../icons/Tensorflow.astro'
     import Pandas from './../icons/Pandas.astro'
     import Numpy from './../icons/Numpy.astro'
+    import Nest from './../icons/Nest.astro'
+    import Redux from './../icons/Redux.astro'
 
     const TAGS = {
         REACT:{
@@ -73,8 +75,28 @@
             class: "bg-white text-blue-400",
             icon: Numpy
         },
+        NEST: {
+            name: "Nest",
+            class: "bg-black text-red-600",
+            icon: Nest
+        },
+        REDUX: {
+            name: "Redux",
+            class: "bg-purple-600 text-white",
+            icon: Redux
+        },
+
     }
 const projects = [
+    {
+        title: "LinkApp",
+        description: "App web que permite guardar links de tus páginas favoritas. Cuenta con sistema de autenticación, carga de imágenes y persistencia de datos de los usuarios.",
+        frontend: "React, CssModules, Redux, React Router Dom v6",
+        backend: "Nest, Typescript, Express, Sqlite",
+        link: "https://app-link-frontend.vercel.app/",
+        photo: "images/project3.png",
+        tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.EXPRESS, TAGS.SQLITE, TAGS.NEST, TAGS.REDUX]
+    },
     {
         title: "Salary Predictor",
         description: "Aplicación web creada desde cero que predice el salario de trabajos relacionados a TI, utilizando IA mediante una red neuronal creada con TensorFlow y Keras.",
